@@ -1,22 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
     <meta charset="UTF-8">
-    {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'team/style.css' %}"/>
     <title>Teams</title>
 </head>
 <body>
+    <ul>
+        <li><a href="#">Home</a>
+        <li><a href="#">Contact</a>
+        <li><a href="#">About</a>
+        <li style="float:right"><a href="#">Login as Admin</a></li>
+    </ul>
     {% if all_teams %}
         {% for team in all_teams %}
-
+    <div class="tables">
                 <table class="teams">
+                <caption><h2>{{ team.teamname }}</h2></caption>
                     <tr><th>Name</th><th>E-mail</th><th>Contact</th></tr>
                     <tr><td>{{ team.member1 }}</td><td>{{ team.email1 }}</td><td>{{ team.contact1 }}</td></tr>
                     <tr><td>{{ team.member2 }}</td><td>{{ team.email2 }}</td><td>{{ team.contact2 }}</td></tr>
                     <tr><td>{{ team.member3 }}</td><td>{{ team.email3 }}</td><td>{{ team.contact3 }}</td></tr>
                 </table>
-
+    </div>
         {% endfor %}
     {% endif %}
 </body>
