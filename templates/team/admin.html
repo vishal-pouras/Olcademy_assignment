@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'team/style.css' %}"/>
+    <title>Teams</title>
+</head>
+<body>
+    {% if all_teams %}
+        {% for team in all_teams %}
+
+                <table class="teams">
+                    <tr><th>Name</th><th>E-mail</th><th>Contact</th></tr>
+                    <tr><td>{{ team.member1 }}</td><td>{{ team.email1 }}</td><td>{{ team.contact1 }}</td></tr>
+                    <tr><td>{{ team.member2 }}</td><td>{{ team.email2 }}</td><td>{{ team.contact2 }}</td></tr>
+                    <tr><td>{{ team.member3 }}</td><td>{{ team.email3 }}</td><td>{{ team.contact3 }}</td></tr>
+                </table>
+
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
