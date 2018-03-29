@@ -1,8 +1,13 @@
-from django.shortcuts import render
+from django.shortcuts import render, reverse
 from django.urls import reverse_lazy
 from .models import Team
+from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView
+
+
+def admin_redirect(request):
+    return HttpResponseRedirect(reverse('team-list'))
 
 
 def teams(request):

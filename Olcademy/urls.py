@@ -31,7 +31,9 @@ urlpatterns = [
     url(r'^adminpage/teams/update/(?P<pk>[0-9]+)$', views.TeamUpdate.as_view(), name='team-update'),
 
     # Admin page where all teams are displayed as List
-    path('adminpage/', views.TeamListView.as_view(), name='team-list'),
+    path('adminpage/', views.admin_redirect, name='admin-redirect'),
+
+    path('adminpage/teams/', views.TeamListView.as_view(), name='team-list'),
 
     # To add a new new team by admin
     path('adminpage/add/', views.TeamCreate.as_view(), name='team-add'),
