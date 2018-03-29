@@ -1,19 +1,7 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link href="https://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet">
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{% static 'team/style.css' %}"/>
-    <title>Teams</title>
-</head>
-<body>
-    <ul>
-        <li><a href="#">Home</a>
-        <li><a href="#">Contact</a>
-        <li><a href="#">About</a>
-        <li style="float:right"><a href="#">Login as Admin</a></li>
-    </ul>
+<!-- Template to display all the team in tabular format -->
+{% extends 'team/base.html' %}
+
+{% block body %}
     {% if all_teams %}
         {% for team in all_teams %}
     <div class="tables">
@@ -27,5 +15,4 @@
     </div>
         {% endfor %}
     {% endif %}
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'team/base.html' %}
+{% block title %}Login{% endblock %}
+{% block body %}
+    <form class="login" action="/adminpage/" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend><h1>Login Details</h1></legend>
+                <h3>Username</h3>
+                <input type="text" name="username" placeholder="username..."><br>
+                <h3>Password</h3>
+                <input type="password" name="password" placeholder="password..."><br>
+                <input type="submit" value="Login">
+        </fieldset>
+    </form>
+{% endblock %}

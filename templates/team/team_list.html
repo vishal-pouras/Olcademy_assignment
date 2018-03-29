@@ -1,0 +1,30 @@
+<!-- Admin page from where admin can edit an existing team or create a new team -->
+
+{% extends 'team/base.html' %}
+{% block title %}List of Teams{% endblock %}
+
+{% block body %}
+<div style="margin-top:100px;height:1500px;">
+    <a style="font-size: 30px;
+        margin-left:45%;
+        border: 3px solid black;
+        text-decoration: none;
+        padding: 10px;
+        color:azure;
+        background-color: cadetblue;
+        border-radius: 10px;" href = "{% url 'team-add' %}">Add a Team</a>
+
+        {% for team in object_list %}
+
+           <div class="tables">
+                <table class="teams">
+                    <caption><a id="name_link" href="teams/update/{{ team.pk }}"><h2>{{ team.teamname }}</h2></a></caption>
+                    <tr><th>Name</th><th>E-mail</th><th>Contact</th></tr>
+                    <tr><td>{{ team.member1 }}</td><td>{{ team.email1 }}</td><td>{{ team.contact1 }}</td></tr>
+                    <tr><td>{{ team.member2 }}</td><td>{{ team.email2 }}</td><td>{{ team.contact2 }}</td></tr>
+                    <tr><td>{{ team.member3 }}</td><td>{{ team.email3 }}</td><td>{{ team.contact3 }}</td></tr>
+                </table>
+            </div>
+        {% endfor %}
+</div>
+{% endblock %}

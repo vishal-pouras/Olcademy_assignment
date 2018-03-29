@@ -13,15 +13,26 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-
-from Olcademy import settings
+from django.conf.urls import url
 from team import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('teams', views.teams, name='teams'),
-    #path('adminpage/', views.adminpage, name='adminpage'),
+
+    # To display the various teams
+    path('teams/', views.teams, name='teams'),
+
+    # To login as admin
+    path('login/', views.login, name='login'),
+
+    # To update the details of a particular team
+    url(r'^adminpage/teams/update/(?P<pk>[0-9]+)$', views.TeamUpdate.as_view(), name='team-update'),
+
+    # Admin page where all teams are displayed as List
+    path('adminpage/', views.TeamListView.as_view(), name='team-list'),
+
+    # To add a new new team by admin
+    path('adminpage/add/', views.TeamCreate.as_view(), name='team-add'),
 ]

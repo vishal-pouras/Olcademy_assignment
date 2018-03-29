@@ -29,7 +29,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+APPEND_SLASH = False
 INSTALLED_APPS = [
     'team.apps.TeamConfig',
     'django.contrib.admin',

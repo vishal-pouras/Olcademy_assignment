@@ -1,0 +1,23 @@
+<!-- Form to update an existing team -->
+
+{% extends 'team/base.html' %}
+{% block title %}Update Team{% endblock %}
+{% block body %}
+<form class="login update" action="" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <legend><h1>Team Information</h1></legend>
+        <h3>Teamname</h3>{{ form.teamname }}
+        <h3>Member1</h3>{{ form.member1 }}
+        <h3>Email1</h3>{{ form.email1 }}
+        <h3>Contact1</h3>{{ form.contact1 }}
+        <h3>Member2</h3>{{ form.member2 }}
+        <h3>Email2</h3>{{ form.email2 }}
+        <h3>Contact2</h3>{{ form.contact2 }}
+        <h3>Member3</h3>{{ form.member3 }}
+        <h3>Email3</h3>{{ form.email3 }}
+        <h3>Contact3</h3>{{ form.contact3 }}
+    <input type="submit" value="Update">
+    </fieldset>
+</form>
+{% endblock %}
