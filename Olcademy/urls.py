@@ -30,9 +30,10 @@ urlpatterns = [
     # To update the details of a particular team
     url(r'^adminpage/teams/update/(?P<pk>[0-9]+)$', views.TeamUpdate.as_view(), name='team-update'),
 
-    # Admin page where all teams are displayed as List
+    # redirects to adminpage/teams/ {done to avoid Slash POST error}
     path('adminpage/', views.admin_redirect, name='admin-redirect'),
 
+    # Admin page where all teams are displayed as List
     path('adminpage/teams/', views.TeamListView.as_view(), name='team-list'),
 
     # To add a new new team by admin
